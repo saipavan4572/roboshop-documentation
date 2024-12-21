@@ -1,5 +1,7 @@
 ### Shipping
 
+Note: use t3.medium instance for Shipping modules as it is a huge memory application.
+
 Shipping service is responsible for finding the distance of the package to be shipped and calculate the price based on that.
 
 Shipping service is written in Java, Hence we need to install Java.
@@ -55,7 +57,7 @@ We need to setup a new service in systemd so systemctl can manage this service
 Setup SystemD Shipping Service
 
 ```
-/etc/systemd/system/shipping.service
+vim /etc/systemd/system/shipping.service
 ```
 
 ```
@@ -101,8 +103,11 @@ dnf install mysql -y
 Load Schema
 
 ```
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql
+                            or (try any one of these two command)
+mysql -h mysql.pspkdevops.online -uroot -pRoboShop@1 < /app/db/master-data.sql
 ```
+
 
 This service needs a restart because it is dependent on schema, After loading schema only it will work as expected, Hence we are restarting this service. This
 

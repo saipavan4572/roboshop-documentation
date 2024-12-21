@@ -79,18 +79,6 @@ SyslogIdentifier=user
 WantedBy=multi-user.target
 ```
 
-Load the service.
-
-```
-systemctl daemon-reload
-```
-
-```
-systemctl enable user 
-```
-```
-systemctl start user
-```
 
 For the application to work fully functional we need to load schema to the Database. Then
 
@@ -123,3 +111,15 @@ mongosh --host MONGODB-SERVER-IPADDRESS </app/schema/user.js
 ```
 
 
+Load the service.
+
+```
+systemctl daemon-reload
+```
+
+```
+systemctl enable user 
+```
+```
+systemctl start user
+```
